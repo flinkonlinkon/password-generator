@@ -1,10 +1,10 @@
 import { useState, useCallback, useEffect } from 'react';
 
 function App() {
-  const [length, setLength] = useState(8); // Corrected typo from 'lenght' to 'length'
-  const [numAllow, setNumAllow] = useState(false); // Corrected 'cont' to 'const' and 'useCallback' to 'useState'
-  const [chaAllow, setChaAllow] = useState(false); // Corrected 'cont' to 'const' and 'useCallback' to 'useState'
-  const [password, setPassword] = useState(''); // Corrected 'useCallback' to 'useState'
+  const [length, setLength] = useState(8); 
+  const [numAllow, setNumAllow] = useState(false);
+  const [chaAllow, setChaAllow] = useState(false); 
+  const [password, setPassword] = useState(''); 
 
   const passGenerator = useCallback(() => {
     let pass = '';
@@ -12,9 +12,9 @@ function App() {
     if (numAllow) stg += '0123456789';
     if (chaAllow) stg += '!@#$%^&*-_+=[]{}~`';
 
-    for (let i = 0; i < length; i++) { // Changed from i=1 to i=0 and 'lenght' to 'length'
-      let cha = Math.floor(Math.random() * stg.length); // Corrected 'lenght' to 'length'
-      pass += stg.charAt(cha); // Corrected 'chaAt' to 'charAt'
+    for (let i = 0; i < length; i++) {
+      let cha = Math.floor(Math.random() * stg.length); 
+      pass += stg.charAt(cha);
     }
 
     setPassword(pass);
@@ -35,7 +35,7 @@ function App() {
           max={100}
           min={8}
           value={length}
-          onChange={(e) => setLength(parseInt(e.target.value))} // Fixed the onChange handler to update length
+          onChange={(e) => setLength(parseInt(e.target.value))} 
         />
         
         <input
