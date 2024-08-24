@@ -20,6 +20,9 @@ function App() {
     setPassword(pass);
   }, [length, numAllow, chaAllow]);
 
+  const copyPasswordToClipboard = useCallback(() => {
+    window.navigator.clipboard.writeText(password)
+  }, [password])
   useEffect(() => {
     passGenerator();
   }, [length, numAllow, chaAllow, passGenerator]);
@@ -28,7 +31,7 @@ function App() {
     <>
       <div className='w-3/4 mx-auto'>
         <input className='w-full bg-gray-400 text-white text-center' type="text" value={password} readOnly />
-        <button className='btn'>copy</button>
+        <button onClick={copyPasswordToClipboard} className='btn'>copy</button>
         
         <input
           type="range"
